@@ -1,0 +1,14 @@
+# Caches
+*.pyc
+__pycache__/
+.idea/
+.vscode/
+.mypy_cache/
+
+# Virtualenvs
+venv/
+env/
+
+# Images, data, etc.
+data/
+
