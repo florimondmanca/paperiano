@@ -3,3 +3,4 @@ opencv-contrib-python<4
 numpy
 matplotlib
 jupyter
+moviepy
