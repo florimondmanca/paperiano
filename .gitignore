@@ -12,3 +12,4 @@ env/
 # Images, data, etc.
 data/
 
+.DS_Store
