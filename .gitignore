@@ -17,10 +17,12 @@ data/
 # Checkpoints
 .ipynb_checkpoints
 
-
 # Classifier
 checkpoint*
 binary_classifier/processed_data/
 binary_classifier/raw_data/
 binary_classifier/checkpoints/
 binary_classifier/checkpoint*
+
+# Output data
+output/
