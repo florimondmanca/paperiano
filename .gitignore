@@ -23,6 +23,10 @@ binary_classifier/processed_data/
 binary_classifier/raw_data/
 binary_classifier/checkpoints/
 binary_classifier/checkpoint*
+binary_classifier/test_set/
+binary_classifier/val_set/
 
 # Output data
 output/
+
+*.pickle

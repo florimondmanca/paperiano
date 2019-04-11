@@ -9,9 +9,10 @@ class utils:
     count_buffer = []
     class_buffer = all_classes[:]
 
-    def __init__(self):
+    def __init__(self, data_path):
         self.image_count = []
         self.count_buffer = []
+        self.data_path = data_path
         for i in os.walk(data_path):
             if len(i[2]):
                 self.image_count.append(len(i[2]))
@@ -20,9 +21,12 @@ class utils:
     # processing images into arrays and dispatch as batches whenever called.
     def batch_dispatch(self, batch_size=batch_size):
         global batch_counter
+        batch_counter += 1
         if sum(self.count_buffer):
-
-            class_name = random.choice(self.class_buffer)
+            if self.data_path == 'test_path':
+                class_name = self.class_buffer[batch_counter]
+            else:
+                class_name = random.choice(self.class_buffer)
             choice_index = all_classes.index(class_name)
             choice_count = self.count_buffer[choice_index]
             if choice_count == 0:
@@ -52,7 +56,7 @@ class utils:
     # image operations
     def generate_images(self, class_name, indices):
         batch_images = []
-        choice_folder = os.path.join(data_path, class_name)
+        choice_folder = os.path.join(self.data_path, class_name)
         selected_images = os.listdir(choice_folder)[indices[0]:indices[1]]
         for image in selected_images:
             img = cv2.imread(os.path.join(choice_folder, image))

@@ -3,13 +3,14 @@ import tensorflow as tf
 import os
 import numpy as np
 from binary_classifier.model import model_tools
+from binary_classifier.preprocessing import preprocess_one_image
 
 model = model_tools()
-model_folder = 'checkpoints'
-image = 'raw_data/touching/touching_resized_frame1000.jpg'
+model_folder = 'binary_classifier/checkpoints'
+image = 'binary_classifier/raw_data/flying/flying_resized_frame3243.jpg'
 img = cv2.imread(image)
 session = tf.Session()
-img = cv2.resize(img, (100, 100))
+img = preprocess_one_image(img, 30, 30, 100, 100)
 img = img.reshape(1, 100, 100, 3)
 labels = np.zeros((1, 2))
 
@@ -35,6 +36,6 @@ network = tf.nn.sigmoid(network)
 # Creating the feed_dict that is required to be fed to calculate y_pred
 feed_dict_testing = {im_ph: img, label_ph: labels}
 result = session.run(network, feed_dict=feed_dict_testing)
-print(['%.1f' % res for res in result[0]])
+print(['%.2f' % res for res in result[0]])
 print(['touching', 'flying'])
 
