@@ -6,6 +6,7 @@ def image_processing(raw_data, data_path, height, width, crop_heigth, crop_width
     class_labels = []
     category_count = 0
     for i in os.walk(raw_data):
+        print(i)
         if len(i[2]) > 0:
             counter = 0
             images = i[2]

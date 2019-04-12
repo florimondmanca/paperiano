@@ -16,6 +16,7 @@ crop_heigth = 30 # in percent
 crop_width = 40 # in percent
 
 if not os.path.exists(data_path):
+    print('test')
     ppr.image_processing(raw_data, data_path, height, width, crop_heigth, crop_width)
 
 all_classes = os.listdir(test_path)
@@ -29,8 +30,8 @@ color_channels = 3
 epochs = 2
 
 batch_size = 10
-batch_size_val = 100
-batch_size_test = 400
+batch_size_val = 50
+batch_size_test = 250
 
 batch_counter = -1
 
